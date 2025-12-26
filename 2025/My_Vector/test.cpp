@@ -175,6 +175,6 @@ void test_11()
 
 int main()
 {
-	test_6();
+	test_8();
 	return 0;
 }
