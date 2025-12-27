@@ -136,20 +136,35 @@ decltype(auto) func(Container& c, Index i)
 	return a;
 }
 
+int add(int a, int b)
+{
+	return a + b;
+}
+
 int main()
 {
-	std::vector<char> arr{'a', 'b', 'c'};
-	int a = 1;
-	int& b = a;
-	decltype(auto) c = b;
-	c++;
+	//std::vector<char> arr{'a', 'b', 'c'};
+	//int a = 1;
+	//int& b = a;
+	//decltype(auto) c = b;
+	//c++;
 	//for (auto& e : arr)
 	//	std::cout << e << std::endl;
-	std::cout << c << std::endl;
+	// std::cout << c << std::endl;
 
 	//std::cout << typeid(tmp).name() << std::endl;
 	//int& n = i;
 	//decltype(auto) m = n;
 	//std::cout << typeid(i).name() << std::endl;
+
+	int a = 1; // 右值可以在右边
+	int b = a; // 左值可以在右边
+	// 1 = a; // 右值不能在左边
+	// 1 + 1 = a;
+	// add(1, 1) = a;
+	int& ref_a = a; // 左值引用可以引用左值
+	int&& ref_c = 1; // 右值引用可以引用右值
+	int&& ref_d = add(1, 1);
+	int&& ref_e = 1 + 1;
 	return 0;
 }
